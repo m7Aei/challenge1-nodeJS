@@ -4,5 +4,15 @@
   "main": "index.js",
   "repository": "git@github.com:m7Aei/challenge1-nodeJS.git",
   "author": "m7Aei <mateuspm2015@hotmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
 }
