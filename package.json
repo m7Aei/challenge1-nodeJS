@@ -1,0 +1,8 @@
+{
+  "name": "challenge1-nodeJS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:m7Aei/challenge1-nodeJS.git",
+  "author": "m7Aei <mateuspm2015@hotmail.com>",
+  "license": "MIT"
+}
