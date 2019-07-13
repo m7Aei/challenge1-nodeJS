@@ -20,6 +20,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/check", (req, res) => {
+  users.push(req.body.user);
+  ages.push(req.body.age);
+
   const age = req.body.age;
 
   if (req.body.age >= 18) {
