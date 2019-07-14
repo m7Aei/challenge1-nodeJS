@@ -16,7 +16,7 @@ Esse é o desafio 1 do módulo de nodeJS da rocketseat, ele consiste em realizar
 
 ### Middlewares :godmode:
 
-- [ ] Deve haver um middleware que é chamado nas rotas /major e /minor e checa se a informação de idade não está presente nos Query Params. Se essa informação não existir deve redirecionar o usuário para a página inicial com o formulário, caso contrário o middleware deve apenas continuar com o fluxo normal.
+- [x] Deve haver um middleware que é chamado nas rotas /major e /minor e checa se a informação de idade não está presente nos Query Params. Se essa informação não existir deve redirecionar o usuário para a página inicial com o formulário, caso contrário o middleware deve apenas continuar com o fluxo normal.
 
 # Acessem a RocketSeat e a He4rtDevs: :exclamation: :purple_heart:
 
