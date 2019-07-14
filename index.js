@@ -15,6 +15,16 @@ app.set("view engine", "njk");
 const users = [];
 const ages = [];
 
+const AgeMiddleware = (req, res, next) => {
+  const { age } = req.query;
+
+  if (!age) {
+    return res.redirect("/");
+  }
+
+  return next();
+};
+
 app.get("/", (req, res) => {
   return res.render("new");
 });
@@ -34,6 +44,8 @@ app.post("/check", (req, res) => {
   console.log(users);
   console.log(ages);
 });
+
+app.use(AgeMiddleware);
 
 app.get("/major", (req, res) => {
   const { age } = req.query;
