@@ -1,62 +1,59 @@
-const express = require("express");
-const nunjucks = require("nunjucks");
+const express = require('express')
+const nunjucks = require('nunjucks')
 
-const app = express();
+const app = express()
 
-nunjucks.configure("views", {
+nunjucks.configure('views', {
   autoescape: true,
   express: app,
   watch: true
-});
+})
 
-app.use(express.urlencoded({ extended: false }));
-app.set("view engine", "njk");
+app.use(express.urlencoded({ extended: false }))
+app.set('view engine', 'njk')
 
-const users = [];
-const ages = [];
+const users = []
+const ages = []
 
 const AgeMiddleware = (req, res, next) => {
-  const { age } = req.query;
+  const { age } = req.query
 
   if (!age) {
-    return res.redirect("/");
+    return res.redirect('/')
   }
 
-  return next();
-};
+  return next()
+}
 
-app.get("/", (req, res) => {
-  return res.render("new");
-});
+app.get('/', (req, res) => {
+  return res.render('new')
+})
 
-app.post("/check", (req, res) => {
-  users.push(req.body.user);
-  ages.push(req.body.age);
+app.post('/check', (req, res) => {
+  users.push(req.body.user)
+  ages.push(req.body.age)
 
-  const age = req.body.age;
+  const age = req.body.age
 
   if (req.body.age >= 18) {
-    return res.redirect(`/major?age=${age}`);
+    return res.redirect(`/major?age=${age}`)
   } else {
-    return res.redirect(`/minor?age=${age}`);
+    return res.redirect(`/minor?age=${age}`)
   }
+})
 
-  console.log(users);
-  console.log(ages);
-});
+app.use(AgeMiddleware)
 
-app.use(AgeMiddleware);
+app.get('/major', (req, res) => {
+  const { age } = req.query
 
-app.get("/major", (req, res) => {
-  const { age } = req.query;
+  return res.render('major', { age })
+})
 
-  return res.render("major", { age });
-});
+app.get('/minor', (req, res) => {
+  const { age } = req.query
 
-app.get("/minor", (req, res) => {
-  const { age } = req.query;
+  return res.render('minor', { age })
+})
 
-  return res.render("minor", { age });
-});
-
-app.listen(3000);
+app.listen(3000)
